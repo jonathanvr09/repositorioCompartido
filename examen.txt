@@ -1,0 +1,142 @@
+
+
+// ------------------------------------------------Solucion examen parcial de Programación Imperativa!!
+
+
+/* 
+
+Ejercicio 1:
+Deberás escribir un objeto literal llamado estudiante que contenga las siguientes propiedades que deberás completar con tus datos:
+nombre
+apellido 
+camada
+esParcial (VERDADERO)
+
+*/
+
+let estudiante = {
+    nombre: "Jonathan",
+    apellido: "Vargas",
+    camada: 1,
+    esParcial: true,
+    };
+    
+
+/*
+
+2.  Crear una función que, pasado un número entero (la futura nota), nos devuelva la situación del alumno: 
+
+	 NOTA < 4 :           desaprobado
+    4 <= NOTA < 7 :  debe rendir examen final 
+	 NOTA >= 7 :         promocionado.  
+
+La función deberá retornar la condición final del alumno (solo retorna la palabra). 
+
+Al momento de llamar a la función, deberás mostrar la siguiente frase: 
+	“El alumno obtuvo una nota igual a [NOTA] por lo tanto su condición es [CONDICIÓN]” 
+
+*/
+
+console.log( "--------Ejercicio 1--------" )
+
+let evaluador = ( nota ) => {
+   
+    if ( nota < 4 ){
+        return "desaprobado";
+    }else if( nota >= 4 && nota < 7 ){
+        return "debe rendir examen final";
+    }else return "promocionado"
+    
+}
+let resultado = (nota) => {
+    console.log( `El alumno obtuvo una nota igual a ${nota} por lo tanto su condiciones es ${evaluador( nota )}` );
+}
+
+resultado( 8 );     // promocionado
+resultado( 3 );     // desaprobado    
+resultado( 5 );     // debe rendir examen final
+
+/*
+
+Ejercicio 2:
+
+Crea 1 array llamado clase.  
+Crea 3 objetos literales con las propiedades nombres, apellidos y bimestre de 3 compañeros. 
+    Ej: Esteban Piazza 1 - Leandro Borrelli 1 - Martín Cejas 1
+        Agrega estos 3 objetos al array llamado clase.
+        Imprimir el array para ver que contenga esos objetos.
+
+*/
+
+console.log( "--------Ejercicio 2--------" )
+
+let clase = [
+
+    {
+        nombre: "Estefania",
+        apellido: "Vargas",
+        bimestre: 2,
+    },
+
+    {
+        nombre: "Clara",
+        apellido: "Rios",
+        bimestre: 1,
+    },
+
+    {
+        nombre: "Albeiro",
+        apellido: "Palacio",
+        bimestre:3,
+    },
+
+]
+
+console.log( clase );
+
+/*
+
+Crea una función que reciba el array clase como parámetro e incremente en 1 el número de bimestre de cada uno de los alumnos, llámala siguienteCursada. Debes utilizar una estructura de repetición. 
+Deberás hacer el correcto llamado de la función mostrando el array clase antes y después de llamar a siguienteCursada. 
+
+*/
+
+let siguienteCursada = ( clase )=> {
+
+    for ( let i= 0; i < clase.length; i++ ) {
+        clase[i].bimestre = clase [i].bimestre + 1
+    }
+
+}
+
+siguienteCursada( clase );
+console.log( clase );
+
+
+/*
+
+Ejercicio 3:
+
+1. Crear una función que apruebe o desapruebe alumnos en base a su asistencia y a su progreso completo en PlayGround (true, false). Para ello deberán: 
+    Crear una constante asistenciaMinima que almacene el número mínimo de asistencias permitidas para la aprobación de la materia, en este caso serán 23 asistencias mínimas. 
+    La función deberá recibir como parámetros la cantidad de asistencias  y la condición final ante PlayGround (true o false) del alumno.
+    Un alumno, será aprobado si tiene la cantidad de asistencias mínima y su progreso final está completo. Si alguna de estas opciones no se cumple, el alumno será automáticamente desaprobado. 
+    Deberá retornar un string aprobado o desaprobado según corresponda
+
+*/
+
+console.log( "--------Ejercicio 3--------" )
+
+let asistenciaMinima = 23
+
+let calificador = ( asistencia, condicion ) =>{
+
+    if ( asistencia >= asistenciaMinima && condicion === true ){
+        return "aprobado"
+    } else return "desaprobado"
+
+}
+
+console.log(calificador( 19, true));    // desaprobado  
+console.log(calificador( 24, true ));   // aprobado  
+
